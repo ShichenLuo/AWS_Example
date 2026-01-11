@@ -1,0 +1,13 @@
+[1mdiff --git a/.gitpod.yml b/.gitpod.yml[m
+[1mindex c297cac..b55988c 100644[m
+[1m--- a/.gitpod.yml[m
+[1m+++ b/.gitpod.yml[m
+[36m@@ -2,7 +2,7 @@[m [mtasks:[m
+   - name: aws-cli[m
+     env:[m
+       AWS_CLI_AUTO_PROMPT: on-partial[m
+[31m-    before:[m
+[32m+[m[32m    before: |[m
+       cd /workspace[m
+       curl "https://awscli.amazonaws.com/awscli-exe-linux-x86_64.zip" -o "awscliv2.zip"[m
+       unzip awscliv2.zip[m
