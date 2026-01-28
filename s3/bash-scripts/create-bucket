@@ -1,0 +1,16 @@
+
+
+
+
+if [ -z "$1" ]; then
+    echo "There needs to be a bucket name eg. ./bucket my-bucket-name"
+fi
+
+bucket_name = "$1"
+
+echo "aws s3api create-bucket --bucket $bucket_name --create-bucket-configuration=us-east-1"
+
+aws s3api create-bucket \
+--bucket $bucket_name \
+--create-bucket-configuration="LocationConstraint=us-east-1"
+
