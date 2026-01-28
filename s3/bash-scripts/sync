@@ -3,11 +3,11 @@ echo "sync"
 
 set -e
 
-OUTPUT_DIR="/temp"
-
-rm -r $OUTPUT_DIR
+OUTPUT_DIR="s3/temp"
 
 mkdir -p $OUTPUT_DIR
+
+rm -r $OUTPUT_DIR
 
 NUM_FILES=$((RANDOM%6+5))
 
@@ -17,7 +17,8 @@ for ((i=1; i<=$NUM_FILES; i++)); do
 
     dd if=/dev/urandom of="$FILENAME" bs=1024 count=$((RANDOM%1024+1)) 2>/dev/null
 
-    echo "Create $
+    echo "Create $FILENAME"
+done
 
 tree $OUTPUT_DIR
 
