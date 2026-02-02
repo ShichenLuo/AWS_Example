@@ -8,7 +8,7 @@
         "context": ".",
         "dockerfile": "Dockerfile"
     },
-    "postCreateCommand": "curl 'https://awscli.amazonaws.com/awscli-exe-linux-x86_64.zip' -o /tmp/awscliv2.zip && unzip /tmp/awscliv2.zip -d /tmp && sudo /tmp/aws/install && rm -rf /tmp/aws /tmp/awscliv2.zip",
+    "postCreateCommand": "curl 'https://awscli.amazonaws.com/awscli-exe-linux-x86_64.zip' -o /tmp/awscliv2.zip && unzip /tmp/awscliv2.zip -d /tmp && sudo /tmp/aws/install && rm -rf /tmp/aws /tmp/awscliv2.zip && sudo apt-get install tree",
     "remoteEnv": {
         "AWS_CLI_AUTO_PROMPT": "on-partial"
     }
