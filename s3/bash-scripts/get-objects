@@ -1,4 +1,14 @@
 
+if [ -z $1 ];then
+    echo "Please provide the bucket name"
+fi
 
+BUCKET=$1
+OUTPUT_DIR=${@: -1}
 
-aws s3api --get-objects
+for ((i=2; i<=$#-1; i++)); do
+    file=${!i}
+    aws s3api get-object --profile myprofile --bucket $BUCKET --key $file \
+    $OUTPUT_DIR/$file >/dev/null
+    echo "File \"$file\" downloaded."
+done
