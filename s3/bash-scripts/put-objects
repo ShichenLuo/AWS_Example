@@ -1,26 +1,14 @@
 
-echo "sync"
 
-set -e
+if [ -z "$1" ]; then
+    echo "INPUT_DIR required"
+fi
 
-OUTPUT_DIR="/temp"
+INPUT_DIR=$1
+OUTPUT_DIR=$2
+if [ -d $1 ]; then
+    aws s3 sync $INPUT_DIR s3://$OUTPUT_DIR --profile myprofile --query Location --output text
 
-rm -r $OUTPUT_DIR
-
-mkdir -p $OUTPUT_DIR
-
-NUM_FILES=$((RANDOM%6+5))
-
-
-for ((i=1; i<=$NUM_FILES; i++)); do
-    FILENAME="$OUTPUT_DIR/file_$i.txt"
-
-    dd if=/dev/urandom of="$FILENAME" bs=1024 count=$((RANDOM%1024+1)) 2>/dev/null
-
-    echo "Create $
-
-tree $OUTPUT_DIR
-
-BUCKET_NAME="$1"
-
-aws s3 sync $OUTPUT_DIR s3://$BUCKET_NAME/files
+elif [ -f $1 ]; then
+    aws s3 cp $INPUT_DIR s3://$OUTPUT_DIR --profile myprofile --query Location --output text
+fi

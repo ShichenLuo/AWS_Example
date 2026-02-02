@@ -1,0 +1,4 @@
+
+
+
+aws s3api --get-objects
