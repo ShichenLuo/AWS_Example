@@ -1,2 +1,8 @@
 
 .terraform/
+
+# Terraform
+.terraform/
+terraform/.terraform/
+*.tfstate
+*.tfstate.*
