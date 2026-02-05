@@ -1,0 +1,13 @@
+#bash
+
+echo "deploy s3 bucket via cfn"
+
+stack_name="iac-example-lsc"
+
+aws cloudformation deploy \
+--template-file iac/template.yaml \
+#--no-execute-changeset \ #if add this, changeset will be execute after run "aws cloudformation execute-change-set"
+--region "us-east-1" \
+--stack-name $stack_name \
+--profile myprofile
+
