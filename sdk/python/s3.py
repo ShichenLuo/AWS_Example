@@ -18,6 +18,7 @@ except ClientError as e:
 
 print(s3.list_objects(Bucket=bucket_name))
 
+### upload files to bucket
 prefix = "uuid"
 for i in range(5):
     filename = f"testfile_{i}.txt"
@@ -26,7 +27,10 @@ for i in range(5):
         print(f"writing file {filename}")
     with open(f"testfiles/{filename}","rb") as f:
         s3.upload_fileobj(f, bucket_name, f"{prefix}/{filename}")
+        # s3.put_object(bucket_name,Key,Body) #For small files.
         print(f"uploading file {filename} to s3/{bucket_name}/{prefix}/{filename}")
 
-    
+#download files
+# s3.download_file(bucket_name, file_key, "example.txt")
+
 

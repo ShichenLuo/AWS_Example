@@ -1,0 +1,1 @@
+aws s3 cp test-files/hello.txt s3://my-example-lsc --storage-class STANDARD_IA

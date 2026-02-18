@@ -1,0 +1,9 @@
+aws s3api put-public-access-block --bucket my-example-lsc \
+--public-access-block-configuration BlockPublicAcls=false,IgnorePublicAcls=false,BlockPublicPolicy=true,RestrictPublicBuckets=true \
+--profile myprofile
+
+aws s3api get-public-access-block --bucket my-example-lsc --profile myprofile
+
+aws s3api put-bucket-ownership-controls --bucket my-example-lsc \
+--ownership-controls Rules=[{ObjectOwnership=BucketOwnerPreferred}] \
+--profile myprofile

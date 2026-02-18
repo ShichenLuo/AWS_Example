@@ -1,0 +1,11 @@
+name: my-example-sdk
+description: learning pulumi
+runtime:
+  name: python
+  options:
+    toolchain: pip
+    virtualenv: venv
+config:
+  pulumi:tags:
+    value:
+      pulumi:template: aws-python
